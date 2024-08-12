@@ -19,11 +19,9 @@ for i in range(0,rw):
 
 sp_r[0][2]=nz_el
 
-print("sparce matrix is: ")
-for i in range(0,rw):
-    print(sp[i])
 
-print("sparce matrix without zeroes: ")
+
+print("the sparce matrix one is: ")
 for i in range(0,nz_el+1):
     print(sp_r[i])
 rw1=int(input("enter number of rows of sparse matrix: "))
@@ -46,7 +44,7 @@ for i in range(0,rw1):
     sp3.append(sp4)
 print("the second sparce matrix is : ")
 for i in range(0,rw):
-    print(sp3[i])
+    print(sp_r1[i])
 
 sp_r1[0][2]=nz_el
 
@@ -63,22 +61,24 @@ for i in range(0,rw1):
            sp_r3.append([i,j,sp[i][j]+sp3[i][j]])
     ad_sp.append(ad_sp1)
 sp_r3[0][2]=nz_el2
-print("adiition of two sparce matrix is : ")
-for i in range(0,rw):
-    print(ad_sp[i])
-print("addition of space matrices without zeroes : ")
+
+print("addition of space matrices: ")
 for i in range(0,nz_el2+1):
     print(sp_r3[i])
 nt=[]
 nt.append([cl,rw,nz_el])
 print("transpose of sparse matrix by normal mehod: ")
 for i in range(1,nz_el+1):
-    nt.append([sp_r[i][1],sp_r[i][0],sp_r[i][2]])
+    
+    for j in range(0,cl):
+        if sp_r[i][1]==j:
+            nt.append([sp_r[i][1],sp_r[i][0],sp_r[i][2]])
+   
 
 for i in range(0,nz_el+1):
-    print(sp_r[i])
+    print(nt[i])
 
-print("transpose of sparce matrix : ")
+print("transpose of sparce matrix  by fast method: ")
 trans_sp=[0]*(nz_el+1)
 ct=[0]*cl
 trans_sp[0]=[cl,rw,nz_el]
@@ -154,12 +154,8 @@ if m2:
        add_m.append([sp_r1[i][0],sp_r1[i][1],sp_r1[i][2]])
        nz=nz+1
 add_m[0][2]=nz
-print("sparce matrix1 without zeroes: ")
-for i in range(0,nz_el+1):
-    print(sp_r[i])
-print("sparce matrix2 without zeroes: ")
-for i in range(0,nz_el1+1):
-    print(sp_r1[i])
+
+
 print("addition of sparse martices")
 for i in range(0,nz+1):
     print(add_m[i])
