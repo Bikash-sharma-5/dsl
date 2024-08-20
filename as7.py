@@ -1,5 +1,5 @@
 def selection_sort(l,li):
-    for i in range(l):
+    for i in range(0,l-1):
         x=li[i]
         index=i
         for j in range(i+1,l):
@@ -13,13 +13,13 @@ def selection_sort(l,li):
 
 def insertion_sort(l,li):
     for i in range(1,l):
-        x=li[i]
-        index=i
-        for j in range(0,i,-1):
-            if li[j]<x:
-                x=li[j]
-                index=j
-        li[i],li[index]=li[index],li[i]
+       
+       
+        j=i
+        while j>0 and li[i]<li[i-1]:
+
+           li[i],li[i-1]=li[i-1],li[i]
+           j=j-1
                
 
     print(li)
@@ -29,6 +29,7 @@ def insertion_sort(l,li):
 
 def bubble_sort(l,li):
     for i in range(l):
+       
         for j in range(l-i-1):
             if li[j]>li[j+1]:
                 li[j],li[j+1]=li[j+1],li[j]
@@ -71,8 +72,3 @@ while 1:
 
 
     
-
-
-
-
-
