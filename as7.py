@@ -1,5 +1,22 @@
+
+def shell_sort(l,arr):
+   
+    interval=l/2
+    while(interval>0):
+        for i in range(interval,l):
+            tm=arr[i]
+            j=i
+            while (j>=interval and arr[j-interval]>tm):
+                arr[j]=arr[j-tm]
+                j-=interval
+            arr[j]=tm
+
+    print(arr)
+
+
+
 def selection_sort(l,li):
-    for i in range(0,l-1):
+    for i in range(l):
         x=li[i]
         index=i
         for j in range(i+1,l):
@@ -13,13 +30,13 @@ def selection_sort(l,li):
 
 def insertion_sort(l,li):
     for i in range(1,l):
-       
-       
-        j=i
-        while j>0 and li[i]<li[i-1]:
-
-           li[i],li[i-1]=li[i-1],li[i]
-           j=j-1
+        x=li[i]
+        index=i
+        for j in range(0,i,-1):
+            if li[j]<x:
+                li[j+1]=li[j]
+                index=j
+        li[index]=x
                
 
     print(li)
@@ -29,7 +46,6 @@ def insertion_sort(l,li):
 
 def bubble_sort(l,li):
     for i in range(l):
-       
         for j in range(l-i-1):
             if li[j]>li[j+1]:
                 li[j],li[j+1]=li[j+1],li[j]
@@ -51,6 +67,7 @@ print("choose the option:")
 print("choose:1 for bubble sort")
 print("choose:2 for selection sort")
 print("choose:3 for insertion sort sort")
+print("choose:4 for insertion sort sort")
 print("the sorted array is: ")
 print("---------------------------")
 
@@ -63,6 +80,8 @@ while 1:
         selection_sort(le,li)
     elif op==3:
         insertion_sort(le,li)
+    elif op==4:
+        shell_sort(le,li)
     print("you want to continue press 0 is not press 1:")
     y=int(input())
     if y==0:
@@ -72,3 +91,8 @@ while 1:
 
 
     
+
+
+
+
+
