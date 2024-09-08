@@ -13,18 +13,21 @@ def radix_sort1(l,arr):
             lst=int((arr[i]//dv)%10)
             li[lst]+=1
         for j in range(1,10):
-            li[i]+=li[i-1]
+            li[j]+=li[j-1]
         k=l-1
        
         while k>=0:
-             lst=int((arr[i]//dv)%10)
-             arr1[li[lst] - 1] = arr[i]
+             lst=int((arr[k]//dv)%10)
+             arr1[li[lst] - 1] = arr[k]
              li[lst]-=1
              k-=1
+        
         for i in range(0,l):
             arr[i]=arr1[i]
         ct-=1
-    print(arr1)
+        li=[0]*10
+        dv*=10
+    print(arr)
 
 
  
@@ -71,5 +74,3 @@ for i in range(le):
 radix_sort(le,li)
 radix_sort1(le,li)
 
-
-    
